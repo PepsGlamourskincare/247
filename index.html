@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Peps Glamour Skincare</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --white: #ffffff;
+    --green: #28b463;
+    --light-green: #eaf1;
+    --text: #2c3e50;
+    --gray: #f5f5f5;
+    --logo-red: #e74c3c;
+  }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; }
+  body { 
+    background: var(--white); 
+    color: var(--text); 
+    line-height: 1.6; 
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  html { scroll-behavior: smooth; }
+  
+  header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
+    border-bottom: 2px solid var(--light-green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+  }
+  
+  .logo-box img {
+    height: 55px;
+    width: auto;
+  }
+  
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    align-items: center;
+  }
+  
+  .logo-text .brand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+    color: var(--green);
+  }
+  
+  .logo-text .sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--logo-red);
+    margin-top: -3px;
+  }
+  
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 14px;
+  }
+  nav a:hover { color: var(--green); }
+
+  /* Mobile menu button */
+  .menu-toggle {
+    display: none;
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .menu-toggle:hover {
+    transform: scale(1.05);
+  }
+  .menu-toggle.closed {
+    background: var(--logo-red);
+  }
+
+  /* Desktop view */
+  @media (min-width: 768px) {
+    header {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 15px 8%;
+    }
+    .logo-box {
+      flex-direction: row;
+      text-align: left;
+    }
+    .logo-text {
+      align-items: flex-start;
+    }
+    nav {
+      gap: 20px;
+    }
+    nav a {
+      font-size: 15px;
+    }
+  }
+
+  /* Mobile view */
+  @media (max-width: 767px) {
+    header {
+      position: relative;
+      align-items: flex-start;
+    }
+    .menu-toggle {
+      display: block;
+      position: absolute;
+      right: 5%;
+      top: 20px;
+    }
+    nav {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      gap: 15px;
+      padding-top: 15px;
+    }
+    nav.show {
+      display: flex;
+    }
+  }
+  
+  .fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .bubbles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  .bubble {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(40, 180, 99, 0.15);
+    border-radius: 50%;
+    animation: rise 20s infinite ease-in;
+  }
+  .bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 18s; }
+  .bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 25s; animation-delay: 2s; }
+  .bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 22s; animation-delay: 4s; }
+  .bubble:nth-child(4) { width: 30px; height: 30px; left: 50%; animation-duration: 28s; animation-delay: 1s; }
+  .bubble:nth-child(5) { width: 60px; height: 60px; left: 65%; animation-duration: 20s; animation-delay: 3s; }
+  .bubble:nth-child(6) { width: 25px; height: 25px; left: 80%; animation-duration: 23s; animation-delay: 5s; }
+  .bubble:nth-child(7) { width: 45px; height: 45px; left: 90%; animation-duration: 19s; animation-delay: 2s; }
+
+  @keyframes rise {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    50% { opacity: 0.6; }
+    100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 90px 8%;
+    background: transparent;
+  }
+  .hero h2 { font-size: 38px; margin-bottom: 15px; color: var(--green); }
+  .hero p { font-size: 18px; margin-bottom: 25px; max-width: 600px; margin-inline: auto; }
+  .btn {
+    background: var(--green);
+    color: var(--white);
+    padding: 12px 28px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  .btn:hover { transform: scale(1.05); opacity: 0.9; }
+  
+  section { padding: 70px 8%; position: relative; z-index: 1; }
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .section-title h2 { font-size: 30px; color: var(--green); margin-bottom: 10px; }
+  
+  .about {
+    background: rgba(245, 245, 245, 0.8);
+    text-align: center;
+    backdrop-filter: blur(5px);
+  }
+  .about p { max-width: 700px; margin: auto; font-size: 17px; }
+  
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+  .card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--light-green);
+    border-radius: 15px;
+    padding: 18px;
+    text-align: center;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+  }
+  .card:hover { box-shadow: 0 4px 12px rgba(40,180,99,0.15); transform: translateY(-5px); }
+  .card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  .card h3 { color: var(--green); margin-bottom: 8px; }
+  
+  .benefits {
+    background: rgba(234, 250, 241, 0.8);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    backdrop-filter: blur(5px);
+  }
+  .benefit { text-align: center; padding: 20px; }
+  .benefit h3 { color: var(--green); margin-bottom: 8px; }
+  
+  .testimonials { background: rgba(245, 245, 245, 0.8); backdrop-filter: blur(5px); }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .testimonial {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--green);
+  }
+  .testimonial p { font-style: italic; }
+  .testimonial h4 { margin-top: 10px; color: var(--green); }
+  
+  .contact { text-align: center; }
+  .contact form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .contact input, .contact textarea {
+    padding: 12px;
+    border: 1px solid var(--light-green);
+    border-radius: 8px;
+    font-size: 15px;
+    background: rgba(255,255,255,0.9);
+  }
+  .contact input:focus, .contact textarea:focus {
+    outline: none;
+    border-color: var(--green);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--green);
+    color: var(--white);
+    margin-top: 40px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating Bubbles Background -->
+<div class="bubbles">
+  <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+  <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+</div>
+
+<header class="fade-up">
+  <div class="logo-box">
+    <img id="logo-img" src="" alt="Peps Glamour Logo">
+    <div class="logo-text">
+      <span class="brand" id="brand-name"></span>
+      <span class="sub" id="sub-text"></span>
+    </div>
+  </div>
+
+  <button class="menu-toggle closed" id="menuBtn">Menu</button>
+
+  <nav id="nav-links"></nav>
+</header>
+
+<section class="hero fade-up" id="home">
+  <h2 id="hero-heading"></h2>
+  <p id="hero-subheading"></p>
+  <a id="hero-btn-link"><button class="btn" id="hero-btn-text"></button></a>
+</section>
+
+<section class="about fade-up" id="about">
+  <div class="section-title"><h2 id="about-heading"></h2></div>
+  <p id="about-text"></p>
+</section>
+
+<section id="products" class="fade-up">
+  <div class="section-title"><h2 id="products-heading"></h2></div>
+  <div class="products" id="products-list"></div>
+</section>
+
+<section class="benefits fade-up" id="benefits">
+  <div class="section-title"><h2 id="benefits-heading"></h2></div>
+  <div id="benefits-list"></div>
+</section>
+
+<section class="testimonials fade-up" id="testimonials">
+  <div class="section-title"><h2 id="testimonials-heading"></h2></div>
+  <div class="testimonial-grid" id="testimonials-list"></div>
+</section>
+
+<section class="contact fade-up" id="contact">
+  <div class="section-title"><h2 id="contact-heading"></h2></div>
+  <form id="contact-form" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit" class="btn" id="contact-btn"></button>
+  </form>
+</section>
+
+<footer class="fade-up">
+  <p id="footer-text"></p>
+</footer>
+
+<script>
+  // Load config and populate page
+  fetch('config.json')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('page-title').textContent = data.site.title;
+      document.getElementById('logo-img').src = data.site.logoUrl;
+      document.getElementById('brand-name').textContent = data.site.brandName;
+      document.getElementById('sub-text').textContent = data.site.subText;
+
+      document.getElementById('nav-links').innerHTML = data.nav.map(n => 
+        `<a href="${n.link}">${n.label}</a>`
+      ).join('');
+
+      document.getElementById('hero-heading').textContent = data.hero.heading;
+      document.getElementById('hero-subheading').textContent = data.hero.subheading;
+      document.getElementById('hero-btn-text').textContent = data.hero.buttonText;
+      document.getElementById('hero-btn-link').href = data.hero.buttonLink;
+
+      document.getElementById('about-heading').textContent = data.about.heading;
+      document.getElementById('about-text').textContent = data.about.text;
+
+      document.getElementById('products-heading').textContent = data.products.heading;
+      document.getElementById('products-list').innerHTML = data.products.items.map(p => `
+        <div class="card">
+          <img src="${p.image}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('benefits-heading').textContent = data.benefits.heading;
+      document.getElementById('benefits-list').className = 'benefits';
+      document.getElementById('benefits-list').innerHTML = data.benefits.items.map(b => `
+        <div class="benefit">
+          <h3>${b.title}</h3>
+          <p>${b.desc}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('testimonials-heading').textContent = data.testimonials.heading;
+      document.getElementById('testimonials-list').innerHTML = data.testimonials.items.map(t => `
+        <div class="testimonial">
+          <p>"${t.text}"</p>
+          <h4>- ${t.author}</h4>
+        </div>
+      `).join('');
+
+      document.getElementById('contact-heading').textContent = data.contact.heading;
+      document.getElementById('contact-form').action = data.site.contact.formspreeEndpoint;
+      document.getElementById('contact-btn').textContent = data.contact.buttonText;
+
+      document.getElementById('footer-text').textContent = 
+        `${data.footer.text} | WhatsApp:${data.site.contact.whatsapp} | IG: ${data.site.contact.instagram}`;
+    })
+    .catch(err => console.error('Error loading config.json:', err));
+
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('nav-links');
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    if (navLinks.classList.contains('show')) {
+      menuBtn.textContent = 'Close';
+      menuBtn.classList.remove('closed'); // green
+    } else {
+      menuBtn.textContent = 'Menu';
+      menuBtn.classList.add('closed'); // red
+    }
+  });
+</script>
+
+</body>
+</html>
