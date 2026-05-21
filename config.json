@@ -5,7 +5,7 @@
     "brandName": "Peps Glamour",
     "subText": "SKIN CARE",
     "contact": {
-      "whatsapp": "08183800292",
+      "whatsapp": "2348183800292",
       "instagram": "@pepsglamour",
       "web3formsKey": "ca547f22-8b9a-48a8-a919-afd2fc63e9d1"
     }
@@ -31,13 +31,13 @@
   "products": {
     "heading": "Our Products",
     "items": [
-      {"name": "Glow Oil", "image": "glowcream.jpg", "desc": "Hydrates deeply and gives your skin a natural glow all day."},
-      {"name": "Body scrub", "image": "https://i.imgur.com/0g6Idh6.jpeg", "desc": "Unclogs Pores, smothes skin and Exfoliates dead skin."},
-      {"name": "Black Soap", "image": "https://i.imgur.com/bvTN3CT.jpeg", "desc": "Deep cleansing soap that clears pimples and smooths skin."},
-      {"name": "Face Cream", "image": "facecream.jpg", "desc": "Lightweight cream for daily face hydration and protection."},
-      {"name": "Body Lotion", "image": "bodylotion.jpg", "desc": "Keeps your body soft, smooth, and moisturized all day."},
-      {"name": "Osaprapra", "image": "https://i.imgur.com/LlIUfGJ.jpeg", "desc": "Traditional herbal mix for skin clearing and glow."},
-      {"name": "Vitamin C Serum", "image": "vitaminc.jpg", "desc": "Brightens skin, reduces dark spots, and boosts collagen."}
+      {"name": "Glow Oil", "image": "glowcream.jpg", "desc": "Hydrates deeply and gives your skin a natural glow all day.", "link": "product.html?name=Glow%20Oil"},
+      {"name": "Body scrub", "image": "https://i.imgur.com/0g6Idh6.jpeg", "desc": "Unclogs Pores, smothes skin and Exfoliates dead skin.", "link": "product.html?name=Body%20scrub"},
+      {"name": "Black Soap", "image": "https://i.imgur.com/bvTN3CT.jpeg", "desc": "Deep cleansing soap that clears pimples and smooths skin.", "link": "product.html?name=Black%20Soap"},
+      {"name": "Face Cream", "image": "facecream.jpg", "desc": "Lightweight cream for daily face hydration and protection.", "link": "product.html?name=Face%20Cream"},
+      {"name": "Body Lotion", "image": "bodylotion.jpg", "desc": "Keeps your body soft, smooth, and moisturized all day.", "link": "product.html?name=Body%20Lotion"},
+      {"name": "Osaprapra", "image": "https://i.imgur.com/LlIUfGJ.jpeg", "desc": "Traditional herbal mix for skin clearing and glow.", "link": "product.html?name=Osaprapra"},
+      {"name": "Vitamin C Serum", "image": "vitaminc.jpg", "desc": "Brightens skin, reduces dark spots, and boosts collagen.", "link": "product.html?name=Vitamin%20C%20Serum"}
     ]
   },
   "benefits": {
