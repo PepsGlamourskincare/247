@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Peps Glamour Skincare</title>
+<title id="page-title">Peps Glamour Skincare</title>
+
+<!-- WhatsApp / Facebook / Twitter Preview -->
+<meta property="og:title" content="Peps Glamour Skincare">
+<meta property="og:description" content="Premium skincare creams made with organic ingredients for smooth, radiant, and healthy skin.">
+<meta property="og:image" content="https://pepsglamourskincare.github.io/247/logo.jpg">
+<meta property="og:url" content="https://pepsglamourskincare.github.io/247/">
+<meta property="og:type" content="website">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="500">
+
+<!-- Favicon -->
+<link rel="icon" type="image/jpg" href="logo.jpg">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -31,7 +43,6 @@
   }
   html { scroll-behavior: smooth; }
   
-  /* Header with logo - Icon on top, text below */
   header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -87,7 +98,6 @@
     justify-content: center;
     gap: 12px;
   }
-  
   nav a {
     text-decoration: none;
     color: var(--text);
@@ -96,7 +106,21 @@
   }
   nav a:hover { color: var(--green); }
 
-  /* Desktop view - logo left, nav right */
+  .menu-toggle {
+    display: none;
+    background: var(--green);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .menu-toggle:hover { transform: scale(1.05); }
+  .menu-toggle.closed { background: var(--logo-red); }
+
   @media (min-width: 768px) {
     header {
       flex-direction: row;
@@ -117,8 +141,31 @@
       font-size: 15px;
     }
   }
+
+  @media (max-width: 767px) {
+    header {
+      position: relative;
+      align-items: flex-start;
+    }
+    .menu-toggle {
+      display: block;
+      position: absolute;
+      right: 5%;
+      top: 20px;
+    }
+    nav {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      gap: 15px;
+      padding-top: 15px;
+    }
+    nav.show {
+      display: flex;
+    }
+  }
   
-  /* Rest of your CSS */
   .fade-up {
     opacity: 0;
     transform: translateY(40px);
@@ -281,78 +328,118 @@
 
 <header class="fade-up">
   <div class="logo-box">
-    <img src="https://cdn.vectorstock.com/i/500p/64/01/ecology-woman-leaf-logo-vector-20636401.jpg" alt="Peps Glamour Logo">
+    <img id="logo-img" src="" alt="Peps Glamour Logo">
     <div class="logo-text">
-      <span class="brand">Peps Glamour</span>
-      <span class="sub">SKIN CARE</span>
+      <span class="brand" id="brand-name"></span>
+      <span class="sub" id="sub-text"></span>
     </div>
   </div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#benefits">Why Us</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="#contact">Contact</a>
-  </nav>
+
+  <button class="menu-toggle closed" id="menuBtn">Menu</button>
+
+  <nav id="nav-links"></nav>
 </header>
 
 <section class="hero fade-up" id="home">
-  <h2>Glow Naturally with Peps Glamour</h2>
-  <p>Premium skincare creams made with organic ingredients for smooth, radiant, and healthy skin.</p>
-  <a href="#products"><button class="btn">Shop Now</button></a>
+  <h2 id="hero-heading"></h2>
+  <p id="hero-subheading"></p>
+  <a id="hero-btn-link"><button class="btn" id="hero-btn-text"></button></a>
 </section>
 
 <section class="about fade-up" id="about">
-  <div class="section-title"><h2>About Us</h2></div>
-  <p>At Peps Glamour Skincare, we believe beauty starts with healthy skin. Our creams are handcrafted with natural ingredients, free from harsh chemicals. We’re on a mission to help you glow confidently, every single day.</p>
+  <div class="section-title"><h2 id="about-heading"></h2></div>
+  <p id="about-text"></p>
 </section>
 
 <section id="products" class="fade-up">
-  <div class="section-title"><h2>Our Products</h2></div>
-  <div class="products">
-    <div class="card"><img src="glowcream.jpg" alt="Glow Oil"><h3>Glow Oil</h3><p>Hydrates deeply and gives your skin a natural glow all day.</p></div>
-    <div class="card"><img src="https://i.imgur.com/0g6Idh6.jpeg" alt="Body Scrub"><h3>Body scrub</h3><p>Unclogs Pores,smothes skin and Exfoliates dead skin.</p></div>
-    <div class="card"><img src="https://i.imgur.com/bvTN3CT.jpeg" alt="Black Soap"><h3>Black Soap</h3><p>Deep cleansing soap that clears pimples and smooths skin.</p></div>
-    <div class="card"><img src="facecream.jpg" alt="Face Cream"><h3>Face Cream</h3><p>Lightweight cream for daily face hydration and protection.</p></div>
-    <div class="card"><img src="bodylotion.jpg" alt="Body Lotion"><h3>Body Lotion</h3><p>Keeps your body soft, smooth, and moisturized all day.</p></div>
-    <div class="card"><img src="https://i.imgur.com/LlIUfGJ.jpeg" alt="Osaprapra"><h3>Osaprapra</h3><p>Traditional herbal mix for skin clearing and glow.</p></div>
-    <div class="card"><img src="vitaminc.jpg" alt="Vitamin C Serum"><h3>Vitamin C Serum</h3><p>Brightens skin, reduces dark spots, and boosts collagen.</p></div>
-  </div>
+  <div class="section-title"><h2 id="products-heading"></h2></div>
+  <div class="products" id="products-list"></div>
 </section>
 
 <section class="benefits fade-up" id="benefits">
-  <div class="section-title"><h2>Why Choose Peps Glamour</h2></div>
-  <div class="benefit"><h3>100% Natural</h3><p>No chemicals, only organic ingredients.</p></div>
-  <div class="benefit"><h3>Fast Results</h3><p>See visible changes in 7-14 days.</p></div>
-  <div class="benefit"><h3>Skin Safe</h3><p>Tested and safe for all skin types.</p></div>
-  <div class="benefit"><h3>Fast Delivery</h3><p>We deliver nationwide in 2-3 days.</p></div>
+  <div class="section-title"><h2 id="benefits-heading"></h2></div>
+  <div id="benefits-list"></div>
 </section>
 
 <section class="testimonials fade-up" id="testimonials">
-  <div class="section-title"><h2>What Our Customers Say</h2></div>
-  <div class="testimonial-grid">
-    <div class="testimonial"><p>"This glow Oil changed my skin! People keep asking what I use."</p><h4>- Sarah A.</h4></div>
-    <div class="testimonial"><p>"My dark spots are almost gone in 2 weeks. Highly recommend Peps Glamour."</p><h4>- David K.</h4></div>
-    <div class="testimonial"><p>"Gentle, smells nice, and actually works. Love it!"</p><h4>- Tolu M.</h4></div>
-  </div>
+  <div class="section-title"><h2 id="testimonials-heading"></h2></div>
+  <div class="testimonial-grid" id="testimonials-list"></div>
 </section>
 
 <section class="contact fade-up" id="contact">
-  <div class="section-title"><h2>Contact Us</h2></div>
-  <form action="https://formspree.io/f/mlgvglpe" method="POST">
+  <div class="section-title"><h2 id="contact-heading"></h2></div>
+  <form id="contact-form" action="" method="POST">
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit" class="btn">Send Message</button>
+    <button type="submit" class="btn" id="contact-btn">Send Message</button>
   </form>
 </section>
 
 <footer class="fade-up">
-  <p>© 2026 Peps Glamour Skincare | WhatsApp:08183800292 | IG: @pepsglamour</p>
+  <p id="footer-text"></p>
 </footer>
 
 <script>
+  // Load config and populate page
+  fetch('config.json')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('page-title').textContent = data.site.title;
+      document.getElementById('logo-img').src = data.site.logoUrl;
+      document.getElementById('brand-name').textContent = data.site.brandName;
+      document.getElementById('sub-text').textContent = data.site.subText;
+
+      document.getElementById('nav-links').innerHTML = data.nav.map(n => 
+        `<a href="${n.link}">${n.label}</a>`
+      ).join('');
+
+      document.getElementById('hero-heading').textContent = data.hero.heading;
+      document.getElementById('hero-subheading').textContent = data.hero.subheading;
+      document.getElementById('hero-btn-text').textContent = data.hero.buttonText;
+      document.getElementById('hero-btn-link').href = data.hero.buttonLink;
+
+      document.getElementById('about-heading').textContent = data.about.heading;
+      document.getElementById('about-text').textContent = data.about.text;
+
+      document.getElementById('products-heading').textContent = data.products.heading;
+      document.getElementById('products-list').innerHTML = data.products.items.map(p => `
+        <div class="card">
+          <img src="${p.image}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('benefits-heading').textContent = data.benefits.heading;
+      document.getElementById('benefits-list').className = 'benefits';
+      document.getElementById('benefits-list').innerHTML = data.benefits.items.map(b => `
+        <div class="benefit">
+          <h3>${b.title}</h3>
+          <p>${b.desc}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('testimonials-heading').textContent = data.testimonials.heading;
+      document.getElementById('testimonials-list').innerHTML = data.testimonials.items.map(t => `
+        <div class="testimonial">
+          <p>"${t.text}"</p>
+          <h4>- ${t.author}</h4>
+        </div>
+      `).join('');
+
+      document.getElementById('contact-heading').textContent = data.contact.heading;
+      document.getElementById('contact-btn').textContent = data.contact.buttonText;
+
+      // Set Getform endpoint from JSON
+      document.getElementById('contact-form').action = data.site.contact.getformEndpoint;
+
+      document.getElementById('footer-text').textContent = 
+        `${data.footer.text} | WhatsApp:${data.site.contact.whatsapp} | IG: ${data.site.contact.instagram}`;
+    })
+    .catch(err => console.error('Error loading config.json:', err));
+
+  // Scroll animation
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -360,8 +447,21 @@
       }
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('nav-links');
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    if (navLinks.classList.contains('show')) {
+      menuBtn.textContent = 'Close';
+      menuBtn.classList.remove('closed');
+    } else {
+      menuBtn.textContent = 'Menu';
+      menuBtn.classList.add('closed');
+    }
+  });
 </script>
 
 </body>
