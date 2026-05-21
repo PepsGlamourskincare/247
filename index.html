@@ -58,7 +58,7 @@
   .hero { text-align: center; padding: 90px 8%; background: transparent; }
   .hero h2 { font-size: 38px; margin-bottom: 15px; color: var(--green); }
   .hero p { font-size: 18px; margin-bottom: 25px; max-width: 600px; margin-inline: auto; }
-  .btn { background: var(--green); color: var(--white); padding: 12px 28px; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+  .btn { background: var(--green); color: var(--white); padding: 12px 28px; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; transition: 0.3s; text-decoration: none; display: inline-block; }
   .btn:hover { transform: scale(1.05); opacity: 0.9; }
   section { padding: 70px 8%; position: relative; z-index: 1; }
   .section-title { text-align: center; margin-bottom: 40px; }
@@ -161,13 +161,17 @@
       document.getElementById('about-heading').textContent = data.about.heading;
       document.getElementById('about-text').textContent = data.about.text;
       document.getElementById('products-heading').textContent = data.products.heading;
+      
+      // Updated products section with redirect links
       document.getElementById('products-list').innerHTML = data.products.items.map(p => `
         <div class="card">
           <img src="${p.image}" alt="${p.name}">
           <h3>${p.name}</h3>
           <p>${p.desc}</p>
+          <a href="${p.link}" class="btn" style="margin-top:10px;">View Product</a>
         </div>
       `).join('');
+      
       document.getElementById('benefits-heading').textContent = data.benefits.heading;
       document.getElementById('benefits-list').className = 'benefits';
       document.getElementById('benefits-list').innerHTML = data.benefits.items.map(b => `
