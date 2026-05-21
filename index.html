@@ -66,7 +66,7 @@
   .about { background: rgba(245, 245, 245, 0.8); text-align: center; backdrop-filter: blur(5px); }
   .about p { max-width: 700px; margin: auto; font-size: 17px; }
   .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-  .card { background: rgba(255, 255, 255, 0.85); border: 1px solid var(--light-green); border-radius: 15px; padding: 18px; text-align: center; transition: 0.3s; backdrop-filter: blur(5px); }
+  .card { background: rgba(255, 255, 255, 0.85); border: 1px solid var(--light-green); border-radius: 15px; padding: 18px; text-align: center; transition: 0.3s; backdrop-filter: blur(5px); display:block; text-decoration:none; color:inherit; }
   .card:hover { box-shadow: 0 4px 12px rgba(40,180,99,0.15); transform: translateY(-5px); }
   .card img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; margin-bottom: 12px; }
   .card h3 { color: var(--green); margin-bottom: 8px; }
@@ -162,14 +162,14 @@
       document.getElementById('about-text').textContent = data.about.text;
       document.getElementById('products-heading').textContent = data.products.heading;
       
-      // Updated products section with redirect links
+      // Whole card is now clickable
       document.getElementById('products-list').innerHTML = data.products.items.map(p => `
-        <div class="card">
+        <a href="${p.link}" class="card">
           <img src="${p.image}" alt="${p.name}">
           <h3>${p.name}</h3>
           <p>${p.desc}</p>
-          <a href="${p.link}" class="btn" style="margin-top:10px;">View Product</a>
-        </div>
+          <span class="btn" style="margin-top:10px;">View Product</span>
+        </a>
       `).join('');
       
       document.getElementById('benefits-heading').textContent = data.benefits.heading;
