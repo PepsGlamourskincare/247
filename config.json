@@ -1,102 +1,66 @@
 {
   "site": {
     "title": "Peps Glamour Skincare",
-    "logoUrl": "https://cdn.vectorstock.com/i/500p/64/01/ecology-woman-leaf-logo-vector-20636401.jpg",
+    "logoUrl": "logo.jpg",
     "brandName": "Peps Glamour",
     "subText": "SKIN CARE",
     "contact": {
       "whatsapp": "08183800292",
       "instagram": "@pepsglamour",
-      "formspreeEndpoint": "https://formspree.io/f/mlgvglpe"
+      "getformEndpoint": "https://getform.io/f/abc123xyz"
     }
   },
-
   "nav": [
-    { "label": "Home", "link": "#home" },
-    { "label": "About", "link": "#about" },
-    { "label": "Products", "link": "#products" },
-    { "label": "Why Us", "link": "#benefits" },
-    { "label": "Reviews", "link": "#testimonials" },
-    { "label": "Contact", "link": "#contact" }
+    {"label": "Home", "link": "#home"},
+    {"label": "About", "link": "#about"},
+    {"label": "Products", "link": "#products"},
+    {"label": "Why Us", "link": "#benefits"},
+    {"label": "Reviews", "link": "#testimonials"},
+    {"label": "Contact", "link": "#contact"}
   ],
-
   "hero": {
     "heading": "Glow Naturally with Peps Glamour",
     "subheading": "Premium skincare creams made with organic ingredients for smooth, radiant, and healthy skin.",
     "buttonText": "Shop Now",
     "buttonLink": "#products"
   },
-
   "about": {
     "heading": "About Us",
     "text": "At Peps Glamour Skincare, we believe beauty starts with healthy skin. Our creams are handcrafted with natural ingredients, free from harsh chemicals. We’re on a mission to help you glow confidently, every single day."
   },
-
   "products": {
     "heading": "Our Products",
     "items": [
-      {
-        "image": "glowcream.jpg",
-        "name": "Glow Oil",
-        "desc": "Hydrates deeply and gives your skin a natural glow all day."
-      },
-      {
-        "image": "https://i.imgur.com/0g6Idh6.jpeg",
-        "name": "Body scrub",
-        "desc": "Unclogs Pores, smothes skin and Exfoliates dead skin."
-      },
-      {
-        "image": "https://i.imgur.com/bvTN3CT.jpeg",
-        "name": "Black Soap",
-        "desc": "Deep cleansing soap that clears pimples and smooths skin."
-      },
-      {
-        "image": "facecream.jpg",
-        "name": "Face Cream",
-        "desc": "Lightweight cream for daily face hydration and protection."
-      },
-      {
-        "image": "bodylotion.jpg",
-        "name": "Body Lotion",
-        "desc": "Keeps your body soft, smooth, and moisturized all day."
-      },
-      {
-        "image": "https://i.imgur.com/LlIUfGJ.jpeg",
-        "name": "Osaprapra",
-        "desc": "Traditional herbal mix for skin clearing and glow."
-      },
-      {
-        "image": "vitaminc.jpg",
-        "name": "Vitamin C Serum",
-        "desc": "Brightens skin, reduces dark spots, and boosts collagen."
-      }
+      {"name": "Glow Oil", "image": "glowcream.jpg", "desc": "Hydrates deeply and gives your skin a natural glow all day."},
+      {"name": "Body scrub", "image": "https://i.imgur.com/0g6Idh6.jpeg", "desc": "Unclogs Pores, smothes skin and Exfoliates dead skin."},
+      {"name": "Black Soap", "image": "https://i.imgur.com/bvTN3CT.jpeg", "desc": "Deep cleansing soap that clears pimples and smooths skin."},
+      {"name": "Face Cream", "image": "facecream.jpg", "desc": "Lightweight cream for daily face hydration and protection."},
+      {"name": "Body Lotion", "image": "bodylotion.jpg", "desc": "Keeps your body soft, smooth, and moisturized all day."},
+      {"name": "Osaprapra", "image": "https://i.imgur.com/LlIUfGJ.jpeg", "desc": "Traditional herbal mix for skin clearing and glow."},
+      {"name": "Vitamin C Serum", "image": "vitaminc.jpg", "desc": "Brightens skin, reduces dark spots, and boosts collagen."}
     ]
   },
-
   "benefits": {
     "heading": "Why Choose Peps Glamour",
     "items": [
-      { "title": "100% Natural", "desc": "No chemicals, only organic ingredients." },
-      { "title": "Fast Results", "desc": "See visible changes in 7-14 days." },
-      { "title": "Skin Safe", "desc": "Tested and safe for all skin types." },
-      { "title": "Fast Delivery", "desc": "We deliver nationwide in 2-3 days." }
+      {"title": "100% Natural", "desc": "No chemicals, only organic ingredients."},
+      {"title": "Fast Results", "desc": "See visible changes in 7-14 days."},
+      {"title": "Skin Safe", "desc": "Tested and safe for all skin types."},
+      {"title": "Fast Delivery", "desc": "We deliver nationwide in 2-3 days."}
     ]
   },
-
   "testimonials": {
     "heading": "What Our Customers Say",
     "items": [
-      { "text": "This glow Oil changed my skin! People keep asking what I use.", "author": "Sarah A." },
-      { "text": "My dark spots are almost gone in 2 weeks. Highly recommend Peps Glamour.", "author": "David K." },
-      { "text": "Gentle, smells nice, and actually works. Love it!", "author": "Tolu M." }
+      {"text": "This glow Oil changed my skin! People keep asking what I use.", "author": "Sarah A."},
+      {"text": "My dark spots are almost gone in 2 weeks. Highly recommend Peps Glamour.", "author": "David K."},
+      {"text": "Gentle, smells nice, and actually works. Love it!", "author": "Tolu M."}
     ]
   },
-
   "contact": {
     "heading": "Contact Us",
     "buttonText": "Send Message"
   },
-
   "footer": {
     "text": "© 2026 Peps Glamour Skincare"
   }
